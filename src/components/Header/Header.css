@@ -1,0 +1,32 @@
+.header img{
+    height:80px;
+}
+.header{
+    text-align: center;
+    
+}
+
+.header nav{
+    background-color: #000;
+    line-height: 40px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+nav a{
+    text-decoration: none;
+    color:#fff;
+    margin-right: 20px;
+    padding:5px;
+}
+nav a:hover{
+    background-color: gray;
+}
+.header div{
+    background-color: #000;
+    padding: 20px 0;
+    height: auto;
+}
+.header input{
+    width:70%;
+    height:40px;
+}
