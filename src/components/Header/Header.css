@@ -30,3 +30,8 @@ nav a:hover{
     width:70%;
     height:40px;
 }
+.myCart{
+    color:#fff;
+    display:inline-block;
+    margin-left:5px;
+}
