@@ -7,7 +7,7 @@ import './Header.css';
 
 const Header = (props) => {
     const cart = props.cart;
-    console.log(cart);
+    //console.log(cart);
      
   
     return (
@@ -15,12 +15,13 @@ const Header = (props) => {
             <img src={logo} alt="" />
             <div>
                 <nav>
+                    
                     <a href="/shop">Shop</a>
                     <a href="/review">Order Review</a>
-                    <a href="/manage">Manage Inventory</a>
+                    <a href="/inventory">Manage Inventory</a>
                 </nav>
                 <input type="text" placeholder="Type here to search" />
-                <span className="myCart"><FontAwesomeIcon icon={faShoppingCart} style={{display:'inline-block', marginRight:'5px'}}/>{cart.length}</span>
+                <span className="myCart"><FontAwesomeIcon icon={faShoppingCart} style={{display:'inline-block', marginRight:'5px'}}/></span>
                 
             </div>
         </div>

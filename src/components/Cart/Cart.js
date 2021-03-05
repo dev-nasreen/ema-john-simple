@@ -2,10 +2,10 @@ import React from 'react';
 
 const Cart = (props) => {
     const cart = props.cart;
-    console.log(cart);
-    const total = cart.reduce((total, product) => total + product.price, 0);
-   // let Shipping = 0;
-    let Shipping = (total >500) ? 0 : (total > 100) ? 5.50 : 10.50; 
+   // console.log(cart);
+    const total = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+    //let Shipping = 0;
+    let Shipping = (total >500) ? 0 : (total > 100) ? 5.50 : (total>0) ? 10.50 : 0; 
     const tax = total * .10;
     const formatNumber = num =>{
         const digit = num.toFixed(2);
@@ -27,6 +27,9 @@ const Cart = (props) => {
             <p><small>Shipping Cost: {Shipping}</small></p>
             <p>Tax + VAT: {formatNumber(tax)} </p>
             <p>Total Price: {formatNumber(grandTotal)}</p>
+            {
+                props.children
+            }
             
         </div>
     );
