@@ -1,0 +1,17 @@
+.main{
+    background-color: rgb(236, 169, 12);
+    height:800px;
+  }
+  
+  .my-form{
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 100px 0;
+  }
+  
+  .icon a{
+    display:inline-block;
+    font-size: 30px;
+    margin-right: 10px;
+  }
