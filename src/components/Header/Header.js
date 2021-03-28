@@ -21,8 +21,10 @@ const Header = (props) => {
                     <Link to="/shop">Shop</Link>
                     <Link to="/review">Order Review</Link>
                     <Link to="/inventory">Manage Inventory</Link>
-
-                <button onClick={() => setLoggedInUser({}) }>Sign Out</button>
+                    
+                      {loggedInUser.email ? <span className="user-name">{loggedInUser.name}</span> : <Link  to="/login"><span className="logout-btn">Login</span></Link>}
+                     
+                      {loggedInUser.email && <span className=" logout-btn"><span onClick={ () => setLoggedInUser({})}>LogOut</span></span>} 
                 </nav>
                 <input type="text" placeholder="Type here to search" />
                 <span className="myCart"><FontAwesomeIcon icon={faShoppingCart} style={{display:'inline-block', marginRight:'5px'}}/></span>

@@ -4,26 +4,35 @@ import {useState, useEffect} from 'react';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { Link } from 'react-router-dom';
+import source from '../../images/source.gif'
 import './Shop.css';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
-    const first10= fakeData.slice(0, 10);
-    const [products, setProducts] = useState(first10);
+    //const first10= fakeData.slice(0, 10);
+    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+
+    useEffect(()=>{
+        fetch('https://safe-brook-46245.herokuapp.com/products')
+        .then(res => res.json())
+        .then(data => setProducts(data))
+    },[])
     
     useEffect(() => {
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        if (products.length > 0){
-            const previousCart = productKeys.map(existingKey => {
-                const product = fakeData.find(pd => pd.key === existingKey);
-                product.quantity = savedCart[existingKey];
-                return product;
-            })
-            setCart(previousCart);
-        }
-      }, [products])
+       
+        fetch('https://safe-brook-46245.herokuapp.com/productsByKeys',{
+            method:'POST',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(productKeys)
+        })
+        .then(res => res.json())
+        .then(data => setCart(data))
+      }, [])
 
 
    const handleAddProduct =(product)=>{
@@ -54,6 +63,7 @@ const Shop = () => {
         
         <div className="twin-container">
            <div className="product-container">
+               {products.length === 0 && <p>Looding.......</p>}
               {products.map(pd => <Product 
               showAddBtn={true}
               handleAddProduct ={handleAddProduct}

@@ -3,7 +3,7 @@ import React from 'react';
 const Cart = (props) => {
     const cart = props.cart;
    // console.log(cart);
-    const total = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+    const total = cart.reduce((total, product) => total + product.price * product.quantity || 1, 0);
     //let Shipping = 0;
     let Shipping = (total >500) ? 0 : (total > 100) ? 5.50 : (total>0) ? 10.50 : 0; 
     const tax = total * .10;

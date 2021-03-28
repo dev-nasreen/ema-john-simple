@@ -43,9 +43,9 @@ function App() {
           <Route path='/login'>
             <LogIn></LogIn>
           </Route>
-          <Route path="/inventory">
+          <PrivateRoute path="/inventory">
               <Inventory></Inventory>
-          </Route>
+          </PrivateRoute>
           <Route path="/product/:productKey">
             <ProductDetail></ProductDetail>
           </Route>

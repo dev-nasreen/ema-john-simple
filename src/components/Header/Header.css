@@ -5,7 +5,21 @@
     text-align: center;
     
 }
+.login-btn{
+    background-color: #DAA520!important;
+    color: rgb(34, 31, 31)!important;
+    margin-top: -8px;
+    padding:10px 15px;
+}
 
+.logout-btn {
+    background-color: #DAA520!important;
+    color: rgb(34, 31, 31)!important;
+    padding:10px 15px;
+}
+.logout-btn:hover, .login-btn:hover{
+    background-color: #DAA520!important;
+}
 .header nav{
     background-color: #000;
     line-height: 40px;
@@ -16,10 +30,11 @@ nav a{
     text-decoration: none;
     color:#fff;
     margin-right: 20px;
-    padding:5px;
+    padding:10px;
 }
 nav a:hover{
     background-color: gray;
+    color:black;
 }
 .header div{
     background-color: #000;
